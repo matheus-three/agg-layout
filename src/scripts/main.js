@@ -1,7 +1,5 @@
 window.onload = function() {
     startMenu();
-
-    startCarousel();
 };
 
 function startMenu() {
@@ -30,8 +28,6 @@ function startMenu() {
     const nav = document.querySelector("#nav-menu");
     const nav__height = nav.offsetHeight;
 
-    console.log(nav);
-
     window.addEventListener('scroll', function() {
         scroll = window.scrollY;
         
@@ -43,41 +39,41 @@ function startMenu() {
     })
 }
 
-function startCarousel() {
-    let carousel = document.querySelector('.carousel');
-    let container = carousel.querySelector('.carousel__container');
-    let prevBtn = carousel.querySelector('.carousel__prev');
-    let nextBtn = carousel.querySelector('.carousel__next');
-    let pagination = carousel.querySelector('.carousel__pagination');
-    let bullets = [].slice.call(carousel.querySelectorAll('.carousel__bullet'));
-    let totalItems = container.querySelectorAll('.carousel__item').length;
-    let percent = (100 / totalItems);
-    let currentIndex = 0;
+// function startCarousel() {
+//     let carousel = document.querySelector('.carousel');
+//     let container = carousel.querySelector('.carousel__container');
+//     let prevBtn = carousel.querySelector('.carousel__prev');
+//     let nextBtn = carousel.querySelector('.carousel__next');
+//     let pagination = carousel.querySelector('.carousel__pagination');
+//     let bullets = [].slice.call(carousel.querySelectorAll('.carousel__bullet'));
+//     let totalItems = container.querySelectorAll('.carousel__item').length;
+//     let percent = (100 / totalItems);
+//     let currentIndex = 0;
 
-    function next() {
-        slideTo(currentIndex + 1);
-    }
+//     function next() {
+//         slideTo(currentIndex + 1);
+//     }
 
-    function prev() {
-        slideTo(currentIndex - 1);
-    }
+//     function prev() {
+//         slideTo(currentIndex - 1);
+//     }
 
-    function slideTo(index) {
-        index = index < 0 ? totalItems - 1 : index >= totalItems ? 0 : index;
-        container.style.WebkitTransform = container.style.transform = 'translate(-' + (index * percent) + '%, 0)';
-        bullets[currentIndex].classList.remove('active__bullet');
-        bullets[index].classList.add('active__bullet');
-        currentIndex = index;
-    }
+//     function slideTo(index) {
+//         index = index < 0 ? totalItems - 1 : index >= totalItems ? 0 : index;
+//         container.style.WebkitTransform = container.style.transform = 'translate(-' + (index * percent) + '%, 0)';
+//         bullets[currentIndex].classList.remove('active__bullet');
+//         bullets[index].classList.add('active__bullet');
+//         currentIndex = index;
+//     }
 
-    bullets[currentIndex].classList.add('active__bullet');
-    prevBtn.addEventListener('click', prev, false);
-    nextBtn.addEventListener('click', next, false);
+//     bullets[currentIndex].classList.add('active__bullet');
+//     prevBtn.addEventListener('click', prev, false);
+//     nextBtn.addEventListener('click', next, false);
 
-    pagination.addEventListener('click', function(e) {
-        let index = bullets.indexOf(e.target);
-        if (index !== -1 && index !== currentIndex) {
-            slideTo(index);
-        }
-    }, false);
-};
+//     pagination.addEventListener('click', function(e) {
+//         let index = bullets.indexOf(e.target);
+//         if (index !== -1 && index !== currentIndex) {
+//             slideTo(index);
+//         }
+//     }, false);
+// };

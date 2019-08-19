@@ -1,5 +1,4 @@
 @import './src/styles/_reset.css';
-@import './src/styles/_variables.css';
 @import './src/styles/_fonts.css';
 
 /* ---nav-menu--- */
@@ -99,7 +98,7 @@ section > h2 {
     height: calc(100vh - 80px);
     width: 100%;
     background-attachment: fixed;
-    background-image: linear-gradient(to top, rgba(22, 22, 22, .3)0,rgba(22, 22, 22, .3)75%, #161616 100%), url('/assets/images/home.jpg');
+    background-image: linear-gradient(to top, rgba(22, 22, 22, .3)0,rgba(22, 22, 22, .3)75%, #161616 100%), url('./assets/images/home.jpg');
 
     display: flex;
     flex-direction: column;
