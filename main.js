@@ -3,15 +3,26 @@ window.onload = function() {
 };
 
 function startMenu() {
-    let section = document.querySelectorAll("section", "footer");
+    let section = document.querySelectorAll("section");
     let sections = {};
     let i = 0;
+    let scroll = window.scrollY;
+    const nav = document.querySelector("#nav-menu");
+    const nav__height = nav.offsetHeight;
     
     Array.prototype.forEach.call(section, function(e) {
         sections[e.id] = e.offsetTop;
     });
     
     window.onscroll = function() {
+        scroll = window.scrollY;
+        
+        if (scroll >= nav__height) {
+            nav.classList.add("--colorful")
+        } else {
+            nav.classList.remove("--colorful")
+        }
+        
         let scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
 
         scrollPosition += 52;
@@ -23,20 +34,6 @@ function startMenu() {
             }
         }
     };
-
-    let scroll = window.scrollY;
-    const nav = document.querySelector("#nav-menu");
-    const nav__height = nav.offsetHeight;
-
-    window.addEventListener('scroll', function() {
-        scroll = window.scrollY;
-        
-        if (scroll >= nav__height) {
-            nav.classList.add("--colorful")
-        } else {
-            nav.classList.remove("--colorful")
-        }
-    })
 }
 
 // function startCarousel() {
